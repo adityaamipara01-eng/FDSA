@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main(){
+
+    int n;
+
+    cout << "Enter the Number of Book:";
+    cin >> n;
+    int b[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> b[i];
+    }
+    sort(b, b + n);
+    int target;
+    cout<<"Enter the target";
+    cin>>target;
+    int st=0,end=n-1;
+    
+    while(st<=end){
+        int mid=st+(end-st)/2;
+        if(target>b[mid]){
+            st=mid+1;
+            end=n;
+        }
+        else if (target<b[mid])
+        {
+            st=0;
+            end=mid-1;
+        }
+        else{
+            cout<<"FOUND THE TARGET!!!"<<endl;
+            cout<<"Index is "<<mid+1;
+            break;
+
+        }
+        
+    }
+    
+}
